@@ -1,0 +1,16 @@
+=> Points to remember :-
+	1. We can remove the getter methods if the properties are not used outside the bean class
+	2. We cannot remove setter methods because property tag in xml file internally calls the setter methods
+	
+
+=> What is id and name attribute :-
+	-> id : It specifies the unique identity of the bean object
+
+	-> name :-
+		= It specifies the unique identity bean object name but it is more flexible as compared to id attribute
+		= Following are the flexibilities :-
+			1. We can provide multiple names for one bean object
+			2. We can separate the multiple bean object names by comma, semi-colan or space
+			3. We can provide same bean object name in name and id attribute
+
+=================================================================================================================

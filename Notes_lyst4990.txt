@@ -1,0 +1,63 @@
+=> @Entity :-
+	-> It is used to mark the java class as an entity, indicating that instances of this class will be mapped to rows in a database table
+	-> When we annotate a class with @Entity, hibernate recognizes it as a persistent entity and we can perform database operations (such as insert, update, delete, select) on instances of this class
+	-> This annotation is used at class level
+	-> Syntax :-
+		@Entity
+		class ClassName
+		{
+			//class members
+		}
+
+
+=> @Table :-
+	-> @Table annotation is used to map the class with database table
+	-> This annotation is used at the class level
+	-> Syntax :-
+		@Entity
+		@Table(name = "database_table_name")
+		class ClassName
+		{
+			//class members
+		}
+
+
+=> @Id :-
+	-> It is used to specify the primary key of an entity class. It marks a field as the unique identifier for instances of that entity
+	-> It is used with field or property within the entity class
+	-> Syntax :-
+		@Entity
+		@Table(name = "database_table_name")
+		class ClassName
+		{
+			@Id
+			private int stdid;
+		}
+
+
+=> @Column :-
+	-> It is used to map the field with the table column
+	-> It is used with field or attribute within the entity class
+	-> Syntax :-
+		@Entity
+		@Table(name = "database_table_name")
+		class ClassName
+		{
+			@Id
+			@Column(name = "column_name")
+			private int stdid;
+		}
+
+
+==============================================================================
+
+=> Code to generate unique id :-
+	-> Using XML :-
+		<id name="stdid" column="std_id">
+			<generator class="identity" />
+		</id>
+
+	-> Using Annotation :-
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+==============================================================================

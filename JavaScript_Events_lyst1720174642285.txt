@@ -1,0 +1,40 @@
+=> JavaScript Events :-
+	-> JavaScript provides a variety of events that can be categorized based on their context and usage.
+	-> Below is the categorized list of JavaScript events:
+		1. Mouse Events
+			= click:
+				- Fired when a pointing device button (usually a mouse) is pressed and released on a single element.
+			= dblclick:
+				- Fired when a pointing device button is clicked twice on a single element.
+			= mousedown:
+				- Fired when a pointing device button is pressed on an element.
+			= mouseup:
+				- Fired when a pointing device button is released over an element.
+			= mouseover:
+				- Fired when a pointing device is moved onto the element to which the event is attached.
+			= mouseout:
+				- Fired when a pointing device is moved off the element to which the event is attached.
+		2. Keyboard Events
+			= keydown:
+				- Fired when a key is pressed down.
+			= keyup:
+				- Fired when a key is released.
+		3. Form Events
+			= submit:
+				- Fired when a form is submitted.
+			= change:
+				- Fired for <input>, <select>, and <textarea> elements when the user commits a change to the element’s value.
+			= focus:
+				- Fired when an element has received focus.
+			= blur:
+				- Fired when an element has lost focus.
+			= input:
+				- Fired synchronously when the value of an <input>, <select>, or <textarea> element is changed.
+		4. Window Events
+			= load:
+				- Fired when the whole page has loaded, including all dependent resources such as stylesheets and images.
+			= resize:
+				- Fired when the document view is resized.
+			= scroll:
+				- Fired when the document view or an element has been scrolled.
+		etc

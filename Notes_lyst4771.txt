@@ -1,0 +1,39 @@
+=> JPQL (Java Persistence Query Langauge) :-
+	-> JPQL is a query language used for quering and manipulating java objects with relational database
+	-> It allows the developers to write the queries in an object-oriented way, treating database records as objects
+	-> Some JPQL queries are as follows :-
+		1. Select Query :-
+			= SELECT en FROM EntityName en;
+			= SELECT en FROM EntityName en WHERE en.attribute = :value;
+		2. Update Query :-
+			= Update EntityName en SET en.attribute = :newValue WHERE en.id = :entityId;
+		3. Delete Query :
+			= DELETE FROM EntityName en WHERE en.id = :entityId;
+		    etc
+
+	-> NOTE :-
+		= There is not INSERT query in JPQL. If we have to insert new intity in database then we have to use persist() method of EntityManager interface or native SQL queries
+		= There are many JPQL queries i.e. COUNT, JOIN, GROUP ID, ORDER BY, DISTINCT etc
+		= Each JPQL query should be specific to a single entity
+
+	-> Why we should use JPQL :-
+		1. Advanced Quering
+		2. Improve performance
+		3. Aggregations
+		4. Type safety
+		etc
+
+----------------------------------------------------------------------------------------------
+
+=> Query <interface>
+	-> It is the fundamental JPA interface that represents a database query
+	-> It is used to execute dynamic queries including JPQL or native SQL queries
+	-> It allows parameterization, result retrival and is used for various quering operations
+
+
+=> TypedQuery <interface> :-
+	-> It is a specialized subtye of the Query interface of JPA
+	-> It enhances type safety by demanding us to specift the expected result type when creating a query. This ensures that query results are automatically cast to the specific type, reducing the risk of type-related error
+	-> It is useful when working with entity tyes in JPA as it eliminates the need for explicity casting when retriving the results
+
+===================================================================================================================

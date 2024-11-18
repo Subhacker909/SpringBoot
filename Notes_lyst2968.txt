@@ -1,0 +1,22 @@
+=> Spring Boot with JPA :-
+	-> Spring Boot with JPA refers to using Spring Boot framework for building java applications that utilize JPA for data access to relational database
+	-> With spring boot, we can quickly set up the configuration in our applicaiton while JPA provides a standard interface for accessing and managing relational database entities
+	
+	-> NOTE :-
+		= Spring Boot with JPA gives us more control but requires more coding effort and thus development time gets increased. Thus
+		   "Spring Boot with Spring Data JPA" is more prefered in the industry
+
+=====================================================================================================================
+=> JDBC
+=> Spring Boot with JDBC
+----------------
+=> Hibernate
+=> Spring Boot with Hibernate
+----------------
+=> JPA
+=> Spring Boot with JPA
+---------------
+---------------
+=> Spring Data JPA
+=> Spring Boot with Spring Data JPA
+====================================================================================================================

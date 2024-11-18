@@ -1,0 +1,48 @@
+=> What is Dependency Injection :-
+	-> DI is the process by which we can inject one bean object into another bean object
+	-> DI can be achieved by 2 ways :-
+		1. Setter Method DI
+		2. Constructor DI
+	-> NOTE : Till now we have achieved DI by explicit ways
+
+=================================================================================================================
+
+=> Autowiring :-
+	-> Autowiring is the feature of spring framework by which we can achieve "DI automatically"
+	-> Advantages :-
+		= It requires less code
+	-> Disadvanatges :-
+		= It can be used only for non-primitive data types, not primitive data types
+	-> How can we achieve autowiring :-
+		= We can achieve autowiring by :-
+			1. XML based autowiring
+			2. Annotation + Java based autowiring
+
+----------------------------------------------------------------------------------------------------------------
+
+=> XML Based Autowiring :-
+	-> In XML based autowiring, we dont need to use "ref" attribute in <property> or <constructor-arg> tag
+	-> We can achieve autowiring by using "autowire" attribute in <bean> tag i.e.
+		<bean class="----" id="----" autowire="--modes--">
+	-> Modes of autowire attribute :-
+		1. no
+			= It is default autowiring mode
+			= It simply means that we dont want to achieve autowiring
+		2. byName :-
+			= In this case we will achieve autowiring by matching "property name" of bean object and "bean id" in spring configuration file
+			= It uses "Setter Method DI" internally
+		3. byType :-
+			= In this case we will achieve autowiring by matching the "data-types" i.e. data-type in bean class should be same as that of "class" in <bean> tag
+			= It uses "Setter Method DI" internally
+			= In this case, if we create multiple bean objects of same class, then it will get confused which class it has to inject. To resolve this issue, we can use one attribute i.e. "autowire-candidate='false'". Whenever we use this attribute with the bean, it will not participate in the autowiring
+		4. constructor
+			= This is same as that of byType but it internally uses "Constructor DI"
+
+-----------------------------------------------------------------------------------------------------------------
+
+=> Annotation + Java based autowiring :-
+	-> In this case, we have to use @Autowired annotation
+	-> This annotation can be used with field (property), setter method or constructor
+	-> If there are 2 bean objects which are ready to be injected in the bean then there will confusion, to remove this confusion we can use @Qualifier annotation i.e. @Qualifier("beanId")
+
+====================================================================================================================

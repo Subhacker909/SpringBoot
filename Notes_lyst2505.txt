@@ -1,0 +1,23 @@
+=> Design Pattern :-
+	-> Design patterns are established best practices and reusable templates for solving common software design problem
+		= "established best practices" means that these design patterns have been tried, tested and widly recommended as effective solutions
+	-> They offer structured approaches to create relationships and interactions between classes and objects, promoting efficient, maintanable and scalable code
+	-> For example :-
+		= Singleton Design Pattern
+		= Factory Design Pattern
+		= Abstract Factory Design Pattern
+		= Prototype Design Pattern
+		= DAO Design Pattern
+		= MVC Design Pattern
+		   etc
+
+	-> NOTE : There is one book for design pattern i.e. "Design Patterns - Elements of Reusable Object-Oriented Software" which was written by 4 authors known as GOF (Gan Of Four)
+
+===================================================================================================================
+
+=> DAO Design Pattern :-
+	-> DAO full form is Data Access Object
+	-> It is a design pattern used to separate the data persistence logic into a separate layer. This way, any other layer i.e. service layer etc does not know how low-level operations are performed to access the database
+	-> Diagram
+
+===================================================================================================================

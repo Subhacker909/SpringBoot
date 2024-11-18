@@ -1,0 +1,65 @@
+=> Database :-
+	-> A database is a software which stores the data in an organized manner i.e. in the table (rows and columns)
+	-> Examples of database are :-
+		- MySQL
+		- SQL Server
+		- Oracle
+		- PostgreSQL
+		- SQLite
+		  etc
+	-> Data stored in database can be accessed or manipulated easily using "query language" i.e. SQL, Oracle etc
+
+=================================================================================================================
+
+=> Download and Install MySQL :-
+
+=================================================================================================================
+
+=> Open MySQL Database and Execute SQL Queries :-
+
+=================================================================================================================
+
+=> SQL (Structured Query Language) :-
+	-> SQL is a "query language" which is used to access or manipulate the database i.e. we can insert, update, delete, select etc the data or information from database
+
+	-> SQL has some pre-defined data types :-
+		1. String data-types : VARCHAR, CHAR, TEXT, MEDIUMTEXT, BLOB, CLOB etc
+		2. Numeric data-types : INT, FLOAT, DECIMAL, DOUBLE etc
+		3. Date & Time data-types : DATE, DATETIME, TIME, TIMESTAMP etc
+		    etc
+
+	-> SQL has some pre-defined operators :-
+		1. SQL Arithmetic Operators : +, -, *, /, %
+		2. SQL Comparision Operators : =, !=, >, <, >=, <= etc
+		3. SQL Logical Operators : AND, OR, NOT, LIKE, BETWEEN etc
+
+	-> Types of SQL Commands :-
+		1. DDL (Data Defination Language)
+			= create, alter, drop, rename etc
+		2. DML (Data Manipulation Language)
+			= insert, update, delete etc
+		3. DQL (Data Query Language)
+			= select
+		4. TCC (Transaction Control Commands)
+			= commit, rollback, savepoint etc
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+=> DDL (Data Defination Language) :-
+	-> SHOW DATABASES;
+	-> CREATE DATABASE database_name;
+	-> DROP DATABASE database_name;
+	-> USE database_name;
+
+	-> SHOW TABLES;
+	-> CREATE TABLE table_name(column_name DATA-TYPE(size), column_name DATA-TYPE(size), -, -, -);
+	-> DESC table_name;
+
+	-> ALTER TABLE old_table_name RENAME TO new_table_name;
+	-> ALTER TABLE table_name MODIFY column_name DATA-TYPE(size);
+	-> ALTER TABLE table_name ADD column_name DATA-TYPE(size);
+	-> ALTER TABLE table_name DROP COLUMN column_name;
+
+	-> DROP TABLE table_name;
+
+----------------------------------------------------------------------------------------------------------------------------------

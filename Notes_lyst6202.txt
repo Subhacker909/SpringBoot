@@ -1,0 +1,35 @@
+=> Java Configuration File :-
+	-> Before Spring 3.0 version, it was compulsory to have XML spring configuration file, but from spring 3.0 version, its not compulsory to have XML spring congiguration file. We can also provide the configurations by using java classes
+	-> How to provide configurations using java class :-
+		1. Create java class (spring configuration file) and mark it as @Configuration annotation
+		2. Create one or more methods  (which return the bean object) and mark it as @Bean annotation
+		3. Create an object of AnnotationConfigApplicationContext class and access the bean
+	-> NOTE : By default bean name will be same as method name
+
+
+=> What is @Configuration annotation :-
+	-> It is used with the class to declare java spring configuration file
+	-> When spring container starts, it will check all the java classes marked with @Configuration, it will load that class in memory and process them to create bean definations or configurations
+
+
+=> What is @Bean annotation :-
+	-> @Bean annotation is used with methods
+	-> @Bean methods are resonsible to create and configure bean objects
+	-> When spring container starts, it will invoke/execute all the @Bean methods and create the bean objects
+	-> By default bean object name will be same as method name but we can change the bean object name as below
+		= @Bean(name = "beanObjectName")
+
+
+===================================================================================================================
+
+=> Annotation Based Configurations :-
+	-> If we want to provide spring configurations using annotations, then we can use @Component annotation
+	-> NOTE : In this case we have to create java or xml configuration file
+
+
+=> What is @Component annotation ?
+	-> It is also known as stereotype annotation
+	-> It is used to mark the class as a spring-managed component. The spring container is responsible for creating and configuring and managing the components including their life-cycle, dependency injection etc
+	
+
+===================================================================================================================

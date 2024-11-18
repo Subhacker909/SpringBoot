@@ -1,0 +1,45 @@
+=> Log4j (Logging 4 Java) :-
+	-> Log4j is an open source logging framework for java applications.
+	-> It helps developers to record information about their application activities, application general flow, including errors, warnings etc. This information will be stored in the log files that one can analyzed later for debugging, performance monitoring and troubleshooting purposes
+	-> Log4j was developed by Apache Software Foundation in 2001
+	-> Features of log4j :-
+		1. Flexibility :-
+			= It supports various logging levels (debug, info, warn, error), log destinations (files, databases, networks) and formatting options
+		2. Performance :-
+			= Its performace is very efficient as compared to other logging frameworks
+		3. Configurations :-
+			= We can provide the Log4j configurations separately so that no need to recompile and rebuild the application
+		etc
+	-> Components of Log4j :-
+		1. Logger
+		2. Appender
+		3. Layouts
+
+	-> Note : We have to download the Log4j jar file or dependency
+
+------------------------------------------------------
+
+=> Logger :-
+	-> It is an object which is used to generate the log messages
+	-> Levels of Logger object :-
+		1. OFF (highest value)
+		2. FATAL				- fatal()
+		3. ERROR			- error()
+		4. WARN				- warn()
+		5. INFO				- info()
+		6. DEBUG				- debug()
+		7. TRACE (lowest value)		- trace()
+
+=> Appender :-
+	-> It is an object which determines where the log messages are sent for storage or display
+	-> Some appenders are :-
+		1. ConsoleAppender
+		2. FileAppender
+		3. WriterAppender
+		4. JDBCAppender
+		5. SocketAppender
+		6. TelnetAppender
+		7. SMTPAppender
+		8. SystemlogAppender
+
+-------------------------------------------------------

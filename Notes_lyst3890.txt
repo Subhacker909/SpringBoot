@@ -1,0 +1,36 @@
+=> Named Queries in JPA :-
+	-> Named queries in JPA are the queries to which we assign a particular name, making them easier to reference and reuse throughout our application
+	-> We can declare named queries in an entity class or in xml file
+	-> Syntax :-
+		= In entity class :-
+			@NamedQuery(name = "queryName", query="----JPQL----")
+			public class Student
+			{
+				//----
+			}
+
+		= In XML file (orm.xml)
+			<named-query name="queryName">
+				<query> ----JPQL </query>
+			</named-query>
+
+	-> NOTE : 
+		= Named queries in JPA are primarliy used for selecting data (SELECT query). These are not used for insertion, deletion or updation 
+
+	-> Advantages of Named Queries :-
+		1. Code Reusability
+		2. Code Maintanability
+		3. Type Safety
+		    etc
+
+===================================================================================================================
+
+=> Native SQL Queries in JPA :-
+	-> "Native SQL Queries" refers to the SQL queries that is specific to a particular database like MySQL, Oracle etc
+	-> Native SQL queries are secific to the database and thus they are database-dependent (but JPQL is database independent)
+	-> Native SQL queries are very flexible which allows us to write complex sql queries that are not easily expressable in JPQL
+
+	-> NOTE :-
+		= In case of native sql queries we use "Query" interface because native SQL queries does not return manaed JPA entities and therefore there is no entity type to be specific as the result type
+
+==================================================================================================================

@@ -1,0 +1,111 @@
+-> Key components of spring boot framework :-
+	1. Spring boot starters
+	2. Spring boot auto-configurator
+	3. Spring CLI
+	4. Spring boot actuators
+	    etc
+
+-------------------------------------------------------------------------------------------------
+
+=> Spring boot starters :-
+	-> Spring boot starters are also known as "dependency descriptor"
+	-> These are the pre-packed dependencies for specific feature. Just add one dependency (eg spring-boot-starter-jdbc or spring-boot-starter-web etc) and boom, we get all the essential libraries needed for that feature - saving our time and ensuring compatability
+	
+	-> Spring boot provides a number of starters that allow us to add jar files in the classpath
+	-> In spring boot, all the starters follows a similar name pattern i.e. "spring-boot-starter-*" for eg spring-boot-starter-web or spring-boot-starter-jdbc etc
+	-> Spring boot starters are divided in 3 categories :-
+		1. Application Starters :-
+			= spring-boot-starter
+			= spring-boot-starter-web
+			= spring-boot-starter-jdbc
+			= spring-boot-starter-aop
+			= spring-boot-starter-test
+			   etc
+		2. Technical Starters
+			= spring-boot-starter-tomcat
+			= spring-boot-starter-jetty
+			= spring-boot-starter-logging
+			   etc
+		3. Production Starters
+			= spring-boot-starter-actuators
+			   etc
+	-> NOTE : "spring-boot-starter" name is reserved for official spring boot artifacts
+	-> There may be third party starter which we can include in our application
+	-> Third party starter follows the below name pattern :-
+		= projectname-spring-boot-starter
+
+-------------------------------------------------------------------------------------------------
+
+=> Spring boot auto-configurator :-
+	-> Spring boot auto-configurator automatically configures the springboot application configurations based on the jar dependency that we have added
+	-> All auto-configuration logic is implemented in "spring-boot-autoconfigure.jar"
+	-> Spring boot auto-configurator provides one annotation i.e. @SpringBootApplication
+		= @SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiguration
+
+===================================================================================================================
+
+=> Different ways to create Spring boot application :-
+	1. using Maven project in eclipse
+	2. installing STS tool in eclipse
+	3. using STS (Spring Tool Suit) IDE
+	4. using Springboot Initializr
+	5. using Springboot CLI (Command Line Interface)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+=> Steps to create spring boot first application using Maven project in eclipse :-
+	1. Create simple maven project (skip archetype)
+	2. Provide the spring-boot-starter dependency (for desktop application)
+	3. Create main class in any package and annotate it with @SpringBootApplication annotation
+	4. Create main method
+	5. Start the application using SpringApplication.run(-, -);
+
+	-> NOTE : 
+		= Automatic configuration : In traditional spring applications, we might need to create XML based or java based configuration files to define beans, set up component scanning, configuring data sources etc. However in spring boot application, many of there configurations are handled automatically
+		= Use Build Tool :- When creating a spring boot application, we typically use a build tool such as maven or gradle. These build tools help manage dependencies, build the project and handle various aspects of the projects lifecycle
+
+====================================================================================================================
+
+=> @SpringBootApplication :-
+	-> This annotation is used to simplify the configuration and bootstrap the setup of the spring boot application
+	-> Below are some points for @SpringBootApplication :-
+		1. Combines annotation :-
+			= Combines three essential annotations into one :-
+				- @Configuration : marks the class as a source of bean definations
+				- @EnabledAutoConfiguration : activates spring boot auto configuration
+				- @ComponentScan - It enables component scanning for spring managed components
+		2. Single annotation for common use case :-
+			= Using @SpringBootApplication simplifies the setup of a spring boot application by providing a concise way to enable essential features and defaults. It reduces the need for multiple annotations
+		3. Convenient Entry Point :-
+			= @SpringBootApplication is commonly places on the main class of spring boot application. This main class servers as the entry point for the application
+		4. Bootstrap class :-
+			= The main class annotated with @SpringBootApplication often includes a main method. This method uses SpringApplication.run(-,-) to bootstrap the spring context and start the application
+		5. Opinionated Defaults :-
+			= Spring boot follows the principal of convention over configuration providing opinionated defaults that work well for most applications. @SpringBootApplication will help to get the application runs quickly
+	
+	-> NOTE : We mostly use @SpringBootApplication annotation only once in our application
+
+====================================================================================================================
+
+=> Tasks performed by run() method :-
+	1. Initialize SpringApplication :
+		-> The run() method starts by creating a SpringApplication instance
+	2. Configure Application Context :-
+		-> It configures the application context based on classpath, dependencies and extwernal configurations
+	3. Load external configurations :-
+		-> External configurations are loaded during this phase
+	4. Scan and register beans :-
+		-> Component scanning and bean registration happen here
+	5. Apply auto-configurations :-
+		-> Auto-configuration is applied to configure common features
+	6. Start the embdded web server (if applicable) :-
+		-> The embedded web server (if present) is started here
+	7. Run application runners :-
+		-> The run() method executes beans implementing ApplicationRunner or CommandLineRunner interfaces often used for tasks after application startup
+	8. Display application information :-
+		-> Application information like banner and active profile is displayed
+	9. Return the ApplicationContext :-
+		-> The fully initialized ApplicationContext is returned
+	10. Performs the application tasks
+
+====================================================================================================================

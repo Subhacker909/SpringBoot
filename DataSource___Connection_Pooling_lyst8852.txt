@@ -1,0 +1,72 @@
+=> How to get Connection object ?
+	-> We can get the connection object by 2 ways :-
+		1. DriverManager (class) - "java.sql" package
+		2. DataSource (interface) - "javax.sql" package
+
+-----------------------------------------------------------------------------------------------------------------
+
+=> DriverManager :-
+	-> It is a class which is present in "java.sql" package
+	-> How to get connection object using DriverManager ?
+		>> Connection con = DriverManager.getConnection("URL", "USERNAME", "PASSWORD");
+
+	-> Drawbacks of DriverManager :-
+		1. DriverManager takes a lot of time to open database connection in the network which will slow down the application performance
+		2. Whenever there is increase in the number of clients, the process of connection object creation slows which will decrease the application performance
+		3. The connection object created using DriverManager is not reusable, thus whenever we need connection object, it will again create it which is again time consuming
+
+-----------------------------------------------------------------------------------------------------------------
+
+=> DataSource :-
+	-> It is an interface which is present in "javax.sql" package
+	-> It is an abstraction or standardzied way to obtain database connection object
+	-> Some basic implementations of DataSource are :-
+		1. MysqlDataSource - used for MySql database
+		2. OracleDataSource - used for Oracle database
+		3. JdbcDataSource - used for H2 database
+		    etc
+		>> NOTE : Above provided implemented classes does not have in-built connection pooling feature
+
+	-> Why we use DataSource instead of DriverManager :-
+		1. Easy configurations
+		2. Easy to switch across different databases
+		3. Automatic driver loading
+		4. Cleaner and more readable code
+		>> NOTE : "Connection Pooling" is the most important advantage of DataSource
+		    etc
+
+===================================================================================================================
+
+=> Connection Pool :-
+	-> A connection pool is a group of reusable connection objects for a particular database
+	-> When an application requests for conneciton object, it obtains one from the pool
+	-> When an application closes the connection, then connection object returns back to the pool
+
+=> Connection Pooling :-
+	-> Connection Pooling is a feature or technique that involves managing and reusing existing database connection objects in connection pool, instead of creating new connections from scratch everttime an application interacts with the database
+	-> This improves the application performance and resource utilization by minimizing the time and resource needed to establish the database connection
+	
+	-> Real world example :-
+		= Cooking in restaurants
+
+	-> Different ways to provide connection pooling :-
+		1. Using third-party connection pooling libraries
+			= HikariCP
+				- Known for its high performance and lightweight nature, making it suitable for modern application
+				- "HikariDataSource" is an implemented class for DataSource
+			= Apache Commons DBCP
+				- A widly used connection pooling library with configurable options for connection management
+				- "BasicDataSource" is an implemented class for DataSource
+			= C3P0
+				- It offers features like connection testing and customization options
+				- "ComboPooledDataSource" is an implemented class for DataSource
+`			= BoneCP
+				- It is also lightweight connection pooling library designed for speed and efficiency
+				- "BoneCPDataSource" is an implemented class for DataSource
+		2. Application server-provided connection pooling
+			= Many application servers i.e. Apache Tomcat, Wildfly etc comes with built-in conneection pooling capabilities
+		    etc
+
+	-> NOTE : JDBC does not provide in-built connection pooling feature but we can integrate third-party connection pooling libraries with JDBC
+
+====================================================================================================================

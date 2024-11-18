@@ -1,0 +1,84 @@
+=> Logging :-
+	-> Logging is the process of tracking or recording important information, events, messages or issues that occur during the execution of our application
+	-> The log files generated during the logging process will help the developers or system administrator to monitor the application behaviour
+	
+	-> Use of logging :-
+		1. Error Tracking and Debugging :-
+			= In web applications we can track the error for eg submitting the form
+		2. Security Monitoring :-
+			= We can track security-related events such as failed to login attempts or unauthorized login access
+		3. Auditing and Compliance :-
+			= A finanicial application might log all the financial transactions including the details of transaction, its time, location etc
+		4. Performce Analysis :-
+			= We can track the time taken by our application to perform any event or response
+		5. System Health Monitoring :-
+			= In server enviroment we can track the memory usage, CPU load and other metrics
+		6. Deployment and Release Monitoring :-
+			= We can track the version number, time of releasing the application etc
+		    etc
+
+	-> Where we can use logging :-
+		1. Software Development
+			= Web Development
+			= Mobile App Development
+		2. Devops and Infrastructure
+			= Server Applications
+			= Databases
+		3. Networking and Security :-
+			= Firewall and Security Application
+			= Network Servers
+		4. Cloud Computing :-
+			= Cloud Services
+			= Serverless computing
+		    etc
+
+	-> Logging is supported by multiple langauges i.e. java, php, python, node js etc
+
+	-> There are a lot of API's and Frameworks for logging :-
+		1. Java Logging API
+		2. Log4j
+		3. Logback
+		4. Tinylog
+
+		5. SLF4j
+		6. JCL (Jakarta Commons Logging)
+		    (5th and 6th are logging wrappers)
+
+==================================================================================================================
+
+=> Java Logging API :-
+	-> Java Logging API was introduced in JDK 1.4 version
+	-> It is pre-defined in JDK so we dont need to download or add any dependency or jar file
+	-> This API is present in "java.util.logging" package
+	-> Working of logging :-
+		=
+	-> Components of Logging :-
+		= There are 2 main components of logging :-
+			1. Logger
+			2. Handler
+
+------------------------------------------------------------------------------------------
+
+=> Logger :-
+	-> Logger is an object in logging framework that we use to emit the log messages
+	-> Some levels of Logger are :-
+		1. SEVERE (highest value)
+		2. WARNING
+		3. INFO
+		4. CONFIG
+		5. FINE
+		6. FINER
+		7. FINEST (lowest value)
+
+=> Handler :-
+	-> Handler will take the messages and post it to the provided medium like console or database or file etc
+	-> There are 5 handlers :-
+		1. ConsoleHandler
+		2. FileHandler
+		3. StreamHandler
+		4. SocketHandler
+		5. MemoryHandler
+
+	-> Handler is an object that listens the messages at or above a specified minimum security level
+
+=================================================================================================================

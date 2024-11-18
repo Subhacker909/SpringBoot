@@ -1,0 +1,104 @@
+=> What is Spring :-
+	-> Spring is an "Open Source Application Framework" which is used to develop any type of application i.e. Standalone or Enterprise application
+	-> Spring framework was developed by Rod Johnson
+	-> Spring framework was released under Apache 1.0 licence
+	-> Spring framework was released in June 2003
+	-> First production version i.e. 1.0 was released in March 2004
+	-> Latest version is 6.x version
+
+
+=> Advantages of Spring Framework :-
+	-> Dependency Injection
+	-> Support AOP (Aspect Oriented Programming)
+	-> Easily integrated with other frameworks
+	-> Highly scalable and maintanable
+	-> Easy to test the application
+	    etc
+
+
+=> What is Spring Container :-
+	-> Spring container is the "Heart" or "Core component" of spring framework
+	-> We can compare it like JVM (which is Heart or Core Component) in core java
+	-> Responsibilities of spring container :-
+		1. Instantiate bean object
+		2. Configure bean object
+		3. Initialize bean object
+		4. Destroy bean object
+		5. Manage bean object life cycle
+		6. Dependency Injection
+		7. Supports AOP
+		8. Supports I18N
+		9. Resource Management
+		    etc
+	-> Working of Spring Container :-
+		= Diagram
+
+	-> There are 2 types of Spring Container :-
+		1. BeanFactory (old)
+		2. ApplicationContext (new)
+	-> NOTE : For spring containers we have to provide jar files or dependencies
+
+	-> Hierarchy of Spring Containers :-
+		= Diagram 
+
+------------------------------------------------------------------------------------------------------------
+
+=> What is BeanFactory ?
+	-> It is the core component or heart that instantiate, configure, initialize, destroy manage bean objects life cycle etc
+	-> It is the core interface in spring framework for managing and accessing bean objects
+
+=> What is ApplicationContext ?
+	-> It is sub-interface of BeanFactory for managing and accessing bean objects
+	-> It serves as a "Spring Container" which provides more functionalities as compared to BeanFactory
+	-> In simple terms we can say that it is an advanced spring container as compared to BeanFactory
+
+=> What is difference between BeanFactory and ApplicationContext ?
+	1. BeanFactory is the core container or fundamental container
+	    ApplicationContext is an advanced spring container which provides all the facilities of BeanFactory container
+
+	2. BeanFactory creates the bean objects when we call getBean(-) method and thus it is known as lazy-instantiation
+	    ApplicationContext creates the bean objects when the container gets started and thus it is known as eager-instantiation
+
+	3. BeanFactory is suitable for Standalone applications
+	    ApplicationContext is suitable for Enterprise applications
+
+	4. BeanFactory supports only singleton and prototype scope
+	    ApplicationContext supports singleton, prototype, request, session scopes
+
+	5. BeanFactory does not support AOPand ORM
+	    ApplicationContext support AOP and ORM
+
+	6. BeanFactory does not support I18N functionality
+	    ApplicationContext support I18N functionality
+
+	7. BeanFactory does not support annotations
+	    ApplicationContext support annotations
+
+	    etc
+
+================================================================================================================
+
+=> What is spring configuration file ?
+	-> It is a file which is used to provide the configurations or settings or instructions to the spring container
+	-> There are a lot of configurations which are as follows :-
+		1. Bean definations
+		2. Bean Lifecycle
+		3. Dependency Injection
+		4. Bean Autowiring
+		5. Database configurations
+		6. View Resolvers
+		7. Security configurations
+		8. AOP configurations
+		9. Component scanning
+		    etc
+	-> We can provide spring configurations by following :-
+		1. XML file
+		2. Java classes
+		3. Annotations
+		4. Property files
+		5. Environment variables
+		    etc
+
+	-> NOTE : If we create XML configuration file then its standard name is applicationContext.xml
+
+================================================================================================================

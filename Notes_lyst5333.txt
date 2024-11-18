@@ -1,0 +1,52 @@
+=> Spring Boot JDBC Module :-
+	-> Spring Boot with JDBC provides a streamlined way to connect to Spring Boot application with JDBC and execute SQL queries
+	-> For spring boot JDBC applications, we have to include one dependency i.e. "spring-boot-starter-jdbc"
+	-> Some important interfaces and classes provides by "spring-boot-starter-jdbc" are :-
+		1. DataSource <interface>
+		2. JdbcTemplate <class>
+		3. NamedParameterJdbcTemplate <class>
+		    etc
+	-> NOTE :-
+		= Spring Boot JDBC is built upon Spring JDBC and simplifies database operations in spring boot applications
+		= Spring Boot auto-configures DataSource and JdbcTemplate beans, reducing manual configurations
+
+--------------------------------------------------
+
+=> DataSource :-
+	-> It is an interface which is present in "javax.sql" package
+	-> It provides connections to the database and manages the connection pooling
+	-> In Spring boot, DataSource is auto-configured by default based on the application properties
+	-> DataSource configures properties automatically but it can be customized in the application.properties or application.yml file
+
+--------------------------------------------------
+
+=> JdbcTemplate :-
+	-> It is a central class for JDBC operations in spring boot
+	-> It is used for :-
+		1. Simlifies JDBC :-
+			= JdbcTemplate reduces boilerplate JDBC code making it readable and concise
+		2. Connection Management :-
+			= It manages connections, reducing the need for manual connection handling
+		3. Exception handling :-
+			= Automatically translates the database exceptions into spring's DataAccessExceptions which simplifies the error handling
+		4. SQL executions :-
+			= Executes SQL queries i.e. insert, update, delete, select etc
+		5. Parametrization :-
+			= Support both positional and named parameters in SQL queires
+		6. Batch updations :-
+			= JdbcTemplate provides methods for batch updates, improving performance for bulk data operations
+		etc
+	-> Methods of JdbcTemplate :-
+		1. update(-)
+			= used for insert, update and delete SQL queries
+		2. query(-)
+		    queryForList(-)
+		    queryForMap(-)
+		    queryForObject(-) 
+		    queryForRowSet(-)
+		    etc
+			= used for select operations
+		3. execute(-)
+			= used for DDL (create, drop, alter etc) sql queries
+
+--------------------------------------------------------------

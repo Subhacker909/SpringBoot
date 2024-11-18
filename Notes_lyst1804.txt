@@ -1,0 +1,47 @@
+=> JDBC (Java Database Connectivity) :-
+	-> JDBC is a technology which is used to interact the java application with database
+	
+	-> JDBC is also an API (packages, interfaces and classes)
+		= There are 2 main packages in JDBC API :-
+			1. "java.sql" package :
+				>> Driver (interface)
+				>> Connection (interface)
+				>> Statement (interface)
+				>> PreparedStatement (interface)
+				>> CallableStatement (interface)
+				>> ResultSet (interface)
+				>> DriverManager (class)
+				>> Date (class)
+				>> Time (class)
+				     etc
+			2. "javax.sql" package :
+				>> DataSource (interface)
+				>> RowSet (interface)
+				>> RowSetListener (interface)
+				>> ConnectionEventListener (interface)
+				>> RowSetEvent (class)
+				>> ConnectionEvent (class)
+				     etc
+
+	-> NOTE : JDBC is an abstraction which is provided by Sun Microsystems and implemented by database vendors (and provide them in the form of jar files)
+
+	-> Working of JDBC :-
+		= Diagram
+
+	-> Components of JDBC :-
+		= Driver (Translator) :-
+			>> It is used to convert the java calls to database specific calls and database specific calls to java calls
+		= Connection (Road) :-
+			>> It is used to create conneciton between java application and database
+		= Statement / PreparedStatement / CallableStatement (Truck) :-
+			>> It is used to send the SQL queries (with data) from java application to database and get the result
+		= ResultSet (Box)
+			>> It is used to store the output from database
+
+	-> Steps to create database connection in java :-
+		1. Load and Register driver
+			= Class.forName("driver class name");
+		2. Establish the connection between java application and database :-
+			= DriverManager.getConnection("url", "username", "password");
+
+===================================================================================================================

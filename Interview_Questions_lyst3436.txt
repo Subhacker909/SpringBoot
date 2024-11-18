@@ -1,0 +1,100 @@
+=> How auto-configuration happens in Spring Boot :-
+	-> Below are the step-by-step explanation of how auto-configuration happens in Spring Boot:
+		1. Classpath Scanning:
+			= When the Spring Boot application starts, it initiates a thorough scan of the classpath.
+			= It specifically looks for classes annotated with @SpringBootApplication or other relevant annotations.
+			= It also examines the dependencies available on the classpath, including starters like spring-boot-starter-web or spring-boot-starter-data-jpa.
+		2. Auto-configuration Classes Discovery:
+			= Based on the annotations and dependencies found, Spring Boot identifies applicable auto-configuration classes.
+			= These classes, usually residing within Spring Boot starter modules, are annotated with @EnableAutoConfiguration.
+			= They contain conditional logic that determines which beans to create based on the available configuration.
+		3. Conditional Bean Registration:
+			= Each auto-configuration class evaluates its conditional logic, checking for specific classes, beans, or properties on the classpath.
+			= If the conditions are met, it registers beans using annotations like @Bean to create those beans within the Spring application context.
+			= This might include beans like a DataSource for database connectivity, a DispatcherServlet for web applications, or other framework-specific beans.
+			= Common conditional annotations used are :-
+				>> @ConditionalOnClass(ClassName.class):
+					- Registers the bean only if a specific class is present on the classpath.
+					- Example: @ConditionalOnClass(DataSource.class) for database-related beans.
+				>> @ConditionalOnBean(BeanClass.class):
+					- Registers the bean only if another bean of a specific type is already present in the context.
+					- Example: @ConditionalOnBean(WebMvcConfigurationSupport.class) for web configuration beans.
+				>> @ConditionalOnMissingBean(BeanClass.class):
+					- Registers the bean only if a bean of a specific type is not already present.
+					- Example: @ConditionalOnMissingBean(DataSource.class) to provide a default DataSource if none is defined.
+				>> @ConditionalOnProperty(prefix = "property.name", value = "true"):
+					- Registers the bean only if a certain property has a specific value in the configuration files.
+					- Example: @ConditionalOnProperty(prefix = "spring.jpa.hibernate.ddl-auto", value = "create") for auto-creating database tables.
+				>> @ConditionalOnWebApplication:
+					- Registers the bean only if the application is a web application.
+					- Example: @ConditionalOnWebApplication for beans related to web components like DispatcherServlet.
+		4. Configuration Order and Inheritance:
+			= Auto-configuration classes have a defined order of execution, ensuring that dependent beans are created before those that rely on them.
+			= They can also inherit configuration from other auto-configuration classes or custom beans we have provided.
+		5. Customization and Override:
+			= You can customize or override auto-configuration behavior using several mechanisms:
+				>> Application Properties: Set properties in application.properties or application.yml to influence configuration choices.
+				>> Environment Variables: Override properties using environment variables.
+				>> Command-line Arguments: Pass arguments to the application to tweak settings.
+				>> Custom Beans: Provide our own beans to replace auto-configured ones.
+		6. Application Context Creation:
+			= After auto-configuration completes, Spring Boot creates the application context, incorporating all the auto-configured beans and any custom beans we've defined.
+			= Our application is now ready to run with a tailored configuration based on its dependencies and settings.
+
+=======================================================================================================================
+
+=> List some Spring Boot starters and their key auto-configured dependencies :-
+	-> Some most common Spring Boot starters and their key auto-configured dependencies are as follows :-
+		1. spring-boot-starter:
+			= Core Spring Framework: Provides the essential bean container, configuration, and dependency injection features.
+			= Spring Boot Configuration Processor: Enables annotations like @ConfigurationProperties for processing configuration properties.
+			= Logging: Sets up Logback as the default logging framework, with SLF4J as the API for logging.
+			= YAML Support: Adds support for parsing YAML configuration files.
+		2. spring-boot-starter-web:
+			= Spring MVC: Provides the core web framework for building RESTful APIs and web applications.
+			= Embedded Servlet Container: Includes an embedded servlet container (Tomcat by default, but can be changed to Jetty or Undertow) to run web applications.
+			= Spring Web: Offers additional web-related features like an HTTP client, WebSocket support, and multipart file handling.
+			= Jackson: Automatically configures Jackson for JSON serialization and deserialization.
+			= Validation: Adds bean validation support using Hibernate Validator.
+			= Spring Boot Actuator: Exposes basic health probes and metrics for monitoring our application.
+		3. spring-boot-starter-jdbc:
+			= Connection Pool:
+				>> HikariCP: This is the default connection pool for Spring Boot 2.0 and later due to its high performance and resource efficiency.
+				>> Tomcat JDBC: This is a legacy option, still available but usually less performant than HikariCP. You can switch between them using configuration properties.
+			= JDBC Support:
+				>> Spring JDBC: Provides core JDBC template classes and utilities for interacting with databases using JDBC, such as JdbcTemplate and NamedParameterJdbcTemplate.
+			= Transaction Management:
+				>> Spring Transaction Management: Automatically configures declarative transaction management using the @Transactional annotation.
+				>> This simplifies transaction handling by allowing you to mark methods or entire classes as transactional, ensuring database operations are executed within a transaction.
+			= NOTE : While spring-boot-starter-jdbc offers basic JDBC support, it's often more convenient to use higher-level data access frameworks like JPA for object-relational mapping
+		3. spring-boot-starter-data-jpa:
+			= Spring Data JPA: Provides convenient JPA repositories for interacting with relational databases.
+			= Hibernate: Includes Hibernate as the default JPA implementation.
+			= HikariCP: Sets up HikariCP as the default connection pool for efficient database connection management.
+			= Spring Transaction Management: Automatically configures declarative transaction management using @Transactional annotations.
+		4. spring-boot-starter-test:
+			= Spring Test: Provides utilities for testing Spring applications, including a Spring TestContext framework and integration with JUnit and TestNG.
+			= JUnit: Adds JUnit 5 as the testing framework.
+			= Mockito: Includes Mockito for mocking objects in tests.
+			= AssertJ: Provides a rich set of assertion methods for tests.
+		5. spring-boot-starter-security:
+			= Spring Security: Offers a comprehensive security framework for authentication, authorization, and protection against attacks.
+			= Spring Security Configuration: Automatically configures basic authentication and security features.
+		6. spring-boot-starter-actuator:
+			= Endpoint Auto-configuration: Automatically exposes various endpoints for health checks, metrics, auditing, HTTP tracing, and more. It includes endpoints like /health, /metrics, /info, /env, /beans, etc.
+			= Health Indicators: Configures health indicators to monitor application health, including disk space, database connectivity, and other components.
+			= Metrics: Sets up Micrometer for collecting application metrics, covering JVM metrics, HTTP requests, caches, and more.
+			= Auditing: Enables Spring Security's auditing feature for tracking user activity.
+			= HTTP Tracing: Integrates with Spring Cloud Sleuth for distributed tracing across microservices.
+		7. spring-boot-starter-mail:
+			= Mail Sender Auto-configuration: Creates a default JavaMailSender bean for sending emails. It supports various email providers like Gmail, Yahoo, Outlook, etc.
+			= Properties Binder: Binds configuration properties like email host, username, password, and port to the JavaMailSender bean.
+			= Template Engines: Optionally auto-configures Thymeleaf or FreeMarker template engines for email content rendering.
+			= Message Converters: Configures message converters for handling MIME messages and attachments.
+		8. spring-boot-starter-thymeleaf:
+			= Thymeleaf: Integrates the Thymeleaf templating engine for creating dynamic web views.
+			= Spring Template Engine: Provides support for integrating template engines with Spring MVC.
+			
+	-> NOTE : We can customize these auto-configurations using properties in application.properties or application.yml
+	
+========================================================================================================================

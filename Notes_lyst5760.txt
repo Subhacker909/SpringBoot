@@ -1,0 +1,27 @@
+=> Tansaction Management :-
+------------------------------------------
+
+=> What is transaction :-
+	-> A group of several SQL operations as a single unit where SQL operations are executed on the principal of either all or none
+	-> Prperties of transaction :-
+		= Transaction follows the ACID property
+			>> A (Atomicity) - Either perform all operations or none
+			>> C (Consistency) - The database state must be stable
+			>> I (Isolation) - All the transactions must be executed independently, one transaction must not give effect to another transaction
+			>> D (Durability) - The changes of successful transaction occurs even if the system/database failure occurs
+
+--------------------------------------------
+
+=> Transaction in MySQL database :-
+	-> SELECT @@AUTOCOMMIT;
+		= It is used to check the autocommit status. If it is 1 then it will store the data permanently and if the value is 0 then it will store the data temporary
+
+	-> SET AUTOCOMMIT = 0;
+		= It will change the autocommit to 0 (temporary)
+
+	-> COMMIT :-
+		= It will store the temporary data permamently
+	-> ROLLBACK :-
+		= It will rollback (remove) the temporary data
+
+------------------------------------------

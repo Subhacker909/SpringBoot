@@ -1,0 +1,81 @@
+=> Bean Scope :-
+	-> Bean scope defines the visibility or accesability of that bean in the context we use it
+	-> We can provide bean scope by using "scope" attribute (xml) or "@Scope" annotation (java)
+	-> There are total 7 scopes  :-
+		1. "singleton" scope
+		2. "prototype" scope
+
+		3. "request" scope
+		4. "session" scope
+		5. "globalSession" scope
+		6. "application" scope
+		7. "webSocket" scope
+
+	-> NOTE : By default, bean scope are singleton scope
+	
+---------------------------------------
+
+=> "singleton" scope :-
+	-> It is the default scope of bean object
+	-> In this scope, only one instance will be created for a single bean definitation and that same object will be shared for each request made for that bean using getBean() method
+
+
+=> "prototype" scope :-
+	-> In this scope a new instance is created for a single bean defination and the new object will be shared for each request made for that bean using getBean() method
+	
+
+=================================================================================================================
+
+=> Bean Life Cycle :-
+	-> Bean life cycle has following stages :-
+		1. Loading bean definations
+		2. Bean instantiation
+		3. Bean initialization
+		4. Bean usage
+		5. Bean destruction
+
+---------------------------------------------------------------------------------------
+
+=> Loading bean definitions :-
+	-> Bean definitions are the configurations that defines how bean object should be created. It includes the information about the class to instantiate, property configurations, bean scope, dependency injection etc
+	-> Bean definitions can be provided by xml file or java class or annotations etc
+	-> In Loading bean definitions process, reading and parsing the configuration files to create bean object that will be managed by the spring container is executed
+
+
+=> Bean instantiation :-
+	-> In this phase, spring container will create an instance of the bean based on its bean definations
+	-> How bean objects are created ?
+		1. using default constructor or no-argument constructor
+		2. using static factory method
+		3. using instance factory method
+	-> In this phase, bean objects are initialized with default values based on the data types of properties in JavaBean/POJO class
+	-> In this phase, the container also injects the required dependencies into the bean object by :-
+		1. setter method DI
+		2. constructor DI
+
+
+=> Bean Initialization :-
+	-> In this phase bean object is initialized by its original values
+	-> How bean objects are initialized ?
+		1. using property tags
+		2. using contructor-arg tags
+		3. using explicitly ways
+			= using custom init() method
+			= using afterPropertiesSet() method
+			= using @PostConstruct annotation
+
+
+=> Bean usage :-
+	-> Once the bean object is fully initialized, it is ready to be used in our application
+	-> Bean can be retrieved from the spring container by using getBean(-) method can can be used for any business logic in our application
+
+
+=> Bean Destruction :-
+	-> In this phase bean objects will be destroyed or deleted
+	-> How bean objects are destroyed :-
+		= using custom destroy() method
+		= using destroy() method (DisposableBean interface)
+		= using @PreDestroy annotation
+
+===================================================================================================================
+

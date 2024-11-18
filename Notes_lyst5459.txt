@@ -1,0 +1,85 @@
+=> ORM (Object Relational Mapping) :-
+	-> ORM is a programming technique that allows the data to be mapped between "Object" in object-oriented programming and "Relational Database" using XML or annotations
+	-> It will map the "Object" and "Relational Database" in such a way :-
+		= model classes (object) corresponds to the table
+		= properties map to the table column
+		= property/object values become row in database table
+	-> ORM simplifies database interactions in object-oriented programming languages, making it easier for developers to work with database
+	-> Some ORM tools (frameworks) related to java are :-
+		1. Hibernate
+		2. JPA (Java Persistence API)
+		3. TopLink
+		4. EclipseLink
+		    etc
+
+	-> NOTE :-
+		= ORM is not developed by specific individual or organization. It is a collaborative effort programming technique on which many organizations are working together
+		= ORM is typically used with relational databases (MySQL, Oracle, PostgreSQL, SQL Server etc) but we cannot use ORM with NoSQL databases (MongoDB, Cassandra, Redis etc)
+
+====================================================================================================================
+
+=> Data Persistency :-
+	-> Data means information and persistency means permanent
+	-> Data persistency is the ability to store the data permanently in a way that it is not lost when the program or system is no longer running
+	-> To achieve data-persistency wrt java we have following technique or technologies :-
+		1. Serialization and Deserialization
+		2. JDBC
+		3. ORM
+			1. Hibernate
+			2. JPA (Java Persistence API)
+			3. TopLink
+			4. EclipseLink
+		    etc
+
+
+====================================================================================================================
+
+=> Hibernate :-
+	-> Hibernate is an open-source ORL tool or framework for java
+	-> NOTE : Hibernate is not a core or official component of Java EE (Java Enterprise Edition) platform
+	-> Hibernate was developed by Gavin King while working in JBoss. But the project was later acquired by Red Hat company
+	-> Hibernate first version was released in 2001
+	
+	-> It simplifies database programming in java application by mapping java objects to database tables, making it easier to work with relational database
+	
+	-> Features of Hibernate :-
+		1. Database independent
+			= It supports various relational databases
+		2. Automatic Table Generation
+			= It can generate database schema from java classes
+		3. Query Langauge :-
+			= Hibernate provides its own query language i.e. HQL (Hibernate Query Language) which is database independent
+		4. Caching :-
+			= It provides very good cache mechanism for better performance
+		5. Transaction Management :-
+			= It supports ACID transaction properties
+		6. Connection Pooling :-
+			= It manages and optimizes database connections
+		7. Integration :-
+			= It can be easily integrated with Java EE applications and Java frameworks (eg Spring, Spring Boot)
+		8. Community Support :-
+			= It provides active open-source community for updates and support
+		etc
+
+	-> Hibernate Architecture :-
+		= Diagram
+
+	-> Components of Hibernate Architecture :-
+		1. Application layer
+			= In this layer persistence object is created
+			= In this layer hibernate software is activated
+			= In this layer we can provide business logic and persistence operations
+		2. Persistence Object
+			= It is java object that represents the data and is designed to be persisted (means it can be stored permanently in relational database)
+		3. Hibernate Configuration File
+			= It can be XML or Java file
+			= It contains settings and properties for hibernate i.e. database configuration information, dialect, cache settings etc
+		4. Hibernate Mapping File
+			= It is an XML file which defines how java objects are to be mapped with database tables
+		5. Hibernate Software
+			= When the client activates hibernate, the framework retrieves configuration details from hibernate configuration file and establish the connection with database
+			= When the client activates persistence operations, hibernate generates the appropriate database-specific sql query and executes it
+		6. Relational Database
+			= The persistence object will be mapped with relational-database and new table with data will be created
+
+==================================================================================================================

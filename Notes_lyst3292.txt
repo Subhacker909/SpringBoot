@@ -1,0 +1,62 @@
+=> Logback :-
+	-> Logback is an open source logging framework which is widly used for java applications
+	-> It is the successor of Log4j, offering improved performance, flexibility, configuration options etc
+	-> It is developed by QOS.ch, the same organization which developed SLF4J
+
+	-> NOTE : It is always prefered to use Logback with SLF4J
+
+	-> Components of Logback :-
+		1. Logger
+		2. Appender
+		3. Layouts
+
+---------------------------------------------------------
+
+=> Logger :-
+	-> It is an object which is used to generate the log messages
+	-> Logging levels of logback are :-
+		1. OFF  : Disables all the logging
+		2. ERROR (highest severity)
+		3. WARN
+		4. INFO
+		5. DEBUG
+		6. TRACE (lowest severity)
+
+
+=> Appender :-
+	-> It is an object which detemines where the log messages are sent for storage or display
+	-> Some appenders are :-
+		1. ConsoleAppender
+		2. FileAppender
+		3. RollingFileAppender
+		4. DBAppender
+		5. JDBCAppender
+		6. JMSAppender
+		7. SocketAppender
+		8. SMPTAppender
+		    etc
+
+
+=> Layouts :-
+	-> Layouts acts as a bridge between logger and appender, controlling the output format
+	-> It formats the content of log messages before they are sent to the appenders
+	-> Some layouts are :-
+		1. PatternLayout
+		2. HTMLLayout
+		3. XMLLayout
+		4. JSONLayout
+
+==================================================================================================================
+
+=> Logback configurations :-
+	-> Logback supports XML-Based configurations and Groovy-based configurations but it also supports programatic configurations as well
+	-> Commonly used file names are logback.xml or logback.groovy
+	-> It offers multiple configuration options such as inheritance, conditional configurations, inclusion etc
+
+
+=> Dependencies or Jar Files :-
+	1. logback-classic-xxx.jar
+	2. logback-core-xxx.jar
+	3. slf4j-api-xxx.jar
+
+================================================================================================================

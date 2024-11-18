@@ -1,0 +1,46 @@
+=> Difference between Plain-JDBC and Spring-JDBC (Spring Boot JDBC) :-
+	1. In Plain-JDBC we have to get the connection object manually
+	    In Spring-JDBC, connection object is automatically provided by JdbcTemplate class
+	2. In Plain-JDBC we have following steps :-
+		1. Load and register the driver
+			Class.forName("-");
+		2. Create connection object
+			Connection con = DriverManager.getConnection("url", "username", "password");
+		3. Create Statement, PreparedStatement or CallableStatement object
+			Statement st = con.createStatement();
+		4. Write and execute SQL query
+			st.executeQuery("----sql query----");
+		5. Handle the result
+		6. Close all the resources
+			st.close();
+			con.close();
+		-> NOTE : In above, steps 1,2,3 and 6 are boilerplate code because these are always same but we have to write these steps again and again
+	    In Spring-JDBC we dont need to provide boilerplate code
+	3. In Plain-JDBC we have to handle the compile time exceptions using try-catch block or throws keyword
+	    In Spring-JDBC we dont need to handle the exceptions because it converts the compile time exceptions into runtime exceptions
+	4. In Plain-JDBC, select query will retrieve and store the records in ResultSet
+	    In Spring-JDBC, select query will retrieve and store the records in the form of collection object i.e. List, Map or Bean object
+	5. In Plain-JDBC, as result is stored in ResultSet which is non-syncronized and thus it cannot be transfered over the network
+	    In Spring-JDBC, as result is stored in Collections in bean objects which is synchronized and thus it can be transfered over the network
+	6. In Plain-JDBC, if we want to store the result in bean object or in collection object then we have to provide the code manually
+	    In Spring-JDBC, if we want to store the result in bean object or in collection object then we have to use pre-defined methods and RowMapper interface
+	7. Plain-JDBC provides less support for transaction management
+	    Spring-JDBC provides good support for transaction management
+
+===================================================================================================================
+
+=> NamedParameterJdbcTemplate  :-
+	-> It is the class which is provided by Spring framework as the part of Spring-JDBC module. As Spring Boot is built on the top of Spring Framework, thus we can use NamedParameterJdbcTemplate class in Spring Boot also
+
+	-> Why we use NamedParameterJdbcTemplate :-
+		= In JdbcTemplate, we provide "positional parameters" which is not user-friendly because if there are lot of positional parameters then it will create confusion. To remove this confusion we have to use NamedParameterJdbcTemplate in which we use "Named Parameter"
+
+	-> We can provide "Named Parameter" by 2 ways :-
+		1. By using Map <interface>
+			= We can use any implemented class of Map interface i.e. HashMap etc
+		2. By using SqlParameterSource <interface>
+			= We can use below implemented classes :-
+				>> MapSqlParameterSource
+				>> BeanPropertySqlParameterSource
+
+===================================================================================================================
